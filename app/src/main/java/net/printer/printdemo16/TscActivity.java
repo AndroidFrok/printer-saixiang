@@ -3,11 +3,10 @@ package net.printer.printdemo16;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.os.Message;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -17,9 +16,7 @@ import net.posprinter.posprinterface.TaskCallback;
 import net.posprinter.utils.BitmapProcess;
 import net.posprinter.utils.BitmapToByteData;
 import net.posprinter.utils.DataForSendToPrinterTSC;
-import net.posprinter.utils.RoundQueue;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 

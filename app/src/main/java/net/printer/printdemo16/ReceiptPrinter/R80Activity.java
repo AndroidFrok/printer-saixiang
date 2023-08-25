@@ -2,7 +2,7 @@ package net.printer.printdemo16.ReceiptPrinter;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +12,6 @@ import net.posprinter.posprinterface.ProcessData;
 import net.posprinter.posprinterface.TaskCallback;
 import net.posprinter.utils.BitmapProcess;
 import net.posprinter.utils.BitmapToByteData;
-import net.posprinter.utils.DataForSendToPrinterPos58;
 import net.posprinter.utils.DataForSendToPrinterPos80;
 import net.posprinter.utils.StringUtils;
 import net.printer.printdemo16.MainActivity;
