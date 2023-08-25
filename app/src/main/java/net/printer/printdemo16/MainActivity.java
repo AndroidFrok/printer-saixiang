@@ -378,9 +378,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //tvNewDevice.setVisibility(View.VISIBLE);
         // lvNewDevice.setVisibility(View.VISIBLE);
         // If we're already discovering, stop it
-        /*if (bluetoothAdapter.isDiscovering()) {
+        if (bluetoothAdapter.isDiscovering()) {
             bluetoothAdapter.cancelDiscovery();
-        }*/
+        }
         // Request discover from BluetoothAdapter
         bluetoothAdapter.startDiscovery();
     }
