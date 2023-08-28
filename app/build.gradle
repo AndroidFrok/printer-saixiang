@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    def androidapi = 32
+    def androidapi = 33
     compileSdkVersion androidapi
     defaultConfig {
         applicationId "net.printer.printdemo16"

@@ -14,11 +14,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +26,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import net.posprinter.posprinterface.IMyBinder;
 import net.posprinter.posprinterface.StatusCallBack;
@@ -372,12 +371,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void discoveryDevice() {
-        // Indicate scanning in the title
         setProgressBarIndeterminateVisibility(true);
-        // Turn on sub-title for new devices
-        //tvNewDevice.setVisibility(View.VISIBLE);
-        // lvNewDevice.setVisibility(View.VISIBLE);
-        // If we're already discovering, stop it
         if (bluetoothAdapter.isDiscovering()) {
             bluetoothAdapter.cancelDiscovery();
         }

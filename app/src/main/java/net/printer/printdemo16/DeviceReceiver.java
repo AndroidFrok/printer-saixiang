@@ -5,9 +5,9 @@ import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class DeviceReceiver extends BroadcastReceiver {
 
 
-    private ArrayList<String> deviceList_found=new ArrayList<String>();
+    private ArrayList<String> deviceList_found = new ArrayList<String>();
     private ArrayAdapter<String> adapter;
     private ListView listView;
 
@@ -33,29 +33,30 @@ public class DeviceReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        String action=intent.getAction();
-        if (BluetoothDevice.ACTION_FOUND.equals(action)){
+        String action = intent.getAction();
+        if (BluetoothDevice.ACTION_FOUND.equals(action)) {
             //搜索到的新设备
-            BluetoothDevice btd=intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+            BluetoothDevice btd = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
             //搜索没有配对过的蓝牙设备
-            if(btd.getBondState()!=BluetoothDevice.BOND_BONDED){
-                if (!deviceList_found.contains(btd.getName()+'\n'+btd.getAddress())){
-                    deviceList_found.add(btd.getName()+'\n'+btd.getAddress());
-                    try{
-                         adapter.notifyDataSetChanged();
-                         listView.notify();
-                    }catch (Exception e){
+            if (btd.getBondState() != BluetoothDevice.BOND_BONDED) {
+                if (!deviceList_found.contains(btd.getName() + '\n' + btd.getAddress())) {
+                    deviceList_found.add(btd.getName() + '\n' + btd.getAddress());
+                    Log.d("TAG", "搜到 " + btd.getAddress());
+                    try {
+                        adapter.notifyDataSetChanged();
+                        listView.notify();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }
-        }else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)){
+        } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
             //搜索结束
-            if(listView.getCount()==0){
+            if (listView.getCount() == 0) {
                 deviceList_found.add(context.getString(R.string.none_ble_device));
-                try{
+                try {
                     adapter.notifyDataSetChanged();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
